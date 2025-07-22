@@ -5,71 +5,396 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LL Crew J LLC - Business Development & Operations</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #2c3e50;
+      line-height: 1.7;
     }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Header */
     header {
-      background-color: #004080;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
       color: white;
-      padding: 1rem 2rem;
+      padding: 2rem 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.05);
+      transform: skewY(-3deg);
+      transform-origin: top left;
     }
-    h1, h2 {
-      color: #004080;
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
     }
-    section {
+    
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .tagline {
+      font-size: 1.3rem;
+      opacity: 0.95;
+      font-weight: 300;
       margin-bottom: 2rem;
     }
-    a {
-      color: #004080;
+    
+    .cta-button {
+      display: inline-block;
+      background-color: #e74c3c;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
       text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
     }
-    a:hover {
-      text-decoration: underline;
+    
+    .cta-button:hover {
+      background-color: #c0392b;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
     }
-    footer {
-      background-color: #222;
-      color: #ddd;
+    
+    /* Main Content */
+    main {
+      padding: 4rem 0;
+    }
+    
+    section {
+      margin-bottom: 4rem;
+    }
+    
+    h2 {
+      color: #1e3c72;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
       text-align: center;
-      padding: 1rem 0;
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #e74c3c, #f39c12);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    
+    .about-text {
+      font-size: 1.1rem;
+      color: #34495e;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 2rem;
+      border-radius: 15px;
+      border-left: 5px solid #1e3c72;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .highlight-box h3 {
+      color: #1e3c72;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid #1e3c72;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .service-card h3 {
+      color: #1e3c72;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .service-card p {
+      color: #5a6c7d;
+      line-height: 1.6;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 4rem 0;
+      margin: 4rem -2rem 0;
+      text-align: center;
+    }
+    
+    .contact-section h2 {
+      color: white;
+    }
+    
+    .contact-section h2::after {
+      background: linear-gradient(135deg, #e74c3c, #f39c12);
+    }
+    
+    .contact-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .contact-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .contact-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-card a {
+      color: #f8f9fa;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+    
+    .contact-card a:hover {
+      color: #e74c3c;
+      transition: color 0.3s ease;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #2c3e50;
+      color: #bdc3c7;
+      text-align: center;
+      padding: 2rem 0;
       font-size: 0.9rem;
     }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .tagline {
+        font-size: 1.1rem;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .contact-section {
+        margin: 4rem -1rem 0;
+      }
+    }
+    
+    /* Smooth animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .service-card:nth-child(1) { animation-delay: 0.1s; }
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.3s; }
   </style>
 </head>
 <body>
   <header>
-    <h1>LL Crew J LLC</h1>
-    <p>Business Development & Operations</p>
+    <div class="container">
+      <div class="header-content">
+        <h1>LL Crew J LLC</h1>
+        <p class="tagline">Strategic Business Development & Operations Excellence</p>
+        <a href="#contact" class="cta-button">Let's Talk Business</a>
+      </div>
+    </div>
   </header>
+  
   <main>
-    <section>
-      <h2>About Us</h2>
-      <p>
-        LL Crew J LLC specializes in acquiring, managing, and growing consumer goods businesses primarily through online sales channels. We focus on strategic business development and efficient operations to build sustainable brands with strong market presence.
-      </p>
-      <p>
-        Whether you are a business owner interested in partnering or exploring acquisition opportunities, LL Crew J LLC brings a hands-on, growth-oriented approach.
-      </p>
-    </section>
-    <section>
-      <h2>Contact</h2>
-      <p>
-        We’d love to hear from you.<br />
-        Email: <a href="mailto:contact@llcrewj.com">contact@llcrewj.com</a>
-      </p>
+    <div class="container">
+      <section id="about" class="fade-in">
+        <h2>About LL Crew J LLC</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              LL Crew J LLC is a specialized business development firm focused on acquiring, 
+              managing, and scaling consumer goods businesses through strategic online sales channels. 
+              We bring proven expertise in building sustainable brands with strong market presence.
+            </p>
+            <p>
+              Our hands-on, growth-oriented approach combines operational excellence with strategic 
+              vision to unlock the full potential of consumer goods businesses in today's digital marketplace.
+            </p>
+          </div>
+          <div class="highlight-box">
+            <h3>Our Mission</h3>
+            <p>
+              To partner with ambitious business owners and transform promising consumer goods 
+              companies into market-leading brands through strategic development and operational excellence.
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      <section id="services" class="fade-in">
+        <h2>What We Do</h2>
+        <div class="services-grid">
+          <div class="service-card fade-in">
+            <div class="service-icon">🚀</div>
+            <h3>Business Acquisition</h3>
+            <p>
+              Strategic acquisition of consumer goods businesses with growth potential, 
+              focusing on sustainable revenue streams and scalable operations.
+            </p>
+          </div>
+          <div class="service-card fade-in">
+            <div class="service-icon">📈</div>
+            <h3>Growth Strategy</h3>
+            <p>
+              Comprehensive business development strategies to expand market reach, 
+              optimize operations, and drive sustainable long-term growth.
+            </p>
+          </div>
+          <div class="service-card fade-in">
+            <div class="service-icon">⚙️</div>
+            <h3>Operations Management</h3>
+            <p>
+              Streamlined operational systems and processes designed to maximize 
+              efficiency and profitability across all business functions.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2>Ready to Partner With Us?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+          Whether you're exploring acquisition opportunities or seeking strategic partnership, 
+          we'd love to discuss how LL Crew J LLC can help grow your business.
+        </p>
+        <div class="contact-content">
+          <div class="contact-card">
+            <h3>📧 Email Us</h3>
+            <a href="mailto:contact@llcrewj.com">contact@llcrewj.com</a>
+          </div>
+          <div class="contact-card">
+            <h3>💼 Business Inquiries</h3>
+            <p>Partnership & acquisition opportunities welcome</p>
+          </div>
+          <div class="contact-card">
+            <h3>⚡ Quick Response</h3>
+            <p>We typically respond within 24 hours</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
+  
   <footer>
-    &copy; 2025 LL Crew J LLC. All rights reserved.
+    <div class="container">
+      <p>&copy; 2025 LL Crew J LLC. All rights reserved.</p>
+    </div>
   </footer>
-</body>
-</html>
+  
+  <script>
+    // Smooth scrolling for anchor links
+    doc
+
+Preview trimmed to first 10K characters
