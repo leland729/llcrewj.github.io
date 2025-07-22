@@ -299,7 +299,7 @@
     <div class="container">
       <div class="header-content">
         <h1>LL Crew J LLC</h1>
-        <p class="tagline">Strategic Business Development & Operations Excellence</p>
+        <p class="tagline">Business Development | Technology Consulting | Recruiting & Staffing</p>
         <a href="#contact" class="cta-button">Let's Talk Business</a>
       </div>
     </div>
@@ -308,54 +308,55 @@
   <main>
     <div class="container">
       <section id="about" class="fade-in">
-        <h2>About LL Crew J LLC</h2>
+        <h2>About LL Crew J</h2>
         <div class="about-content">
           <div class="about-text">
             <p>
-              LL Crew J LLC is a specialized business development firm focused on acquiring, 
-              managing, and scaling consumer goods businesses through strategic online sales channels. 
-              We bring proven expertise in building sustainable brands with strong market presence.
+              LL Crew J is a multi-service business solutions firm specializing in three core areas: 
+              strategic business development through acquisition and growth of consumer goods companies, 
+              executive technology consulting for CIO/CISO roles, and comprehensive recruiting and staffing services.
             </p>
             <p>
-              Our hands-on, growth-oriented approach combines operational excellence with strategic 
-              vision to unlock the full potential of consumer goods businesses in today's digital marketplace.
+              Our integrated approach combines deep industry expertise with hands-on execution, 
+              whether we're scaling businesses, providing strategic technology leadership, 
+              or connecting organizations with top-tier talent.
             </p>
           </div>
           <div class="highlight-box">
             <h3>Our Mission</h3>
             <p>
-              To partner with ambitious business owners and transform promising consumer goods 
-              companies into market-leading brands through strategic development and operational excellence.
+              To deliver comprehensive business solutions that drive growth, enhance technology capabilities, 
+              and build exceptional teams through strategic partnerships and expert consulting services.
             </p>
           </div>
         </div>
       </section>
       
       <section id="services" class="fade-in">
-        <h2>What We Do</h2>
+        <h2>Our Services</h2>
         <div class="services-grid">
           <div class="service-card fade-in">
             <div class="service-icon">🚀</div>
-            <h3>Business Acquisition</h3>
+            <h3>Business Development</h3>
             <p>
-              Strategic acquisition of consumer goods businesses with growth potential, 
-              focusing on sustainable revenue streams and scalable operations.
+              Strategic acquisition and scaling of consumer goods businesses with focus on 
+              online sales channels, operational excellence, and sustainable growth strategies.
             </p>
           </div>
           <div class="service-card fade-in">
-            <div class="service-icon">📈</div>
-            <h3>Growth Strategy</h3>
+            <div class="service-icon">🛡️</div>
+            <h3>Technology Consulting</h3>
             <p>
-              Comprehensive business development strategies to expand market reach, 
-              optimize operations, and drive sustainable long-term growth.
+              Executive-level CIO and CISO consulting services providing strategic technology 
+              leadership, cybersecurity expertise, and digital transformation guidance.
             </p>
           </div>
           <div class="service-card fade-in">
-            <div class="service-icon">⚙️</div>
-            <h3>Operations Management</h3>
+            <div class="service-icon">👥</div>
+            <h3>Recruiting & Staffing</h3>
             <p>
-              Streamlined operational systems and processes designed to maximize 
-              efficiency and profitability across all business functions.
+              Comprehensive talent acquisition services connecting organizations with 
+              top-tier professionals across technology, operations, and leadership roles.
             </p>
           </div>
         </div>
@@ -366,8 +367,8 @@
       <div class="container">
         <h2>Ready to Partner With Us?</h2>
         <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
-          Whether you're exploring acquisition opportunities or seeking strategic partnership, 
-          we'd love to discuss how LL Crew J LLC can help grow your business.
+          Whether you're exploring business acquisition opportunities, need strategic technology leadership, 
+          or require top-tier talent acquisition services, we'd love to discuss how LL Crew J can help.
         </p>
         <div class="contact-content">
           <div class="contact-card">
@@ -376,7 +377,7 @@
           </div>
           <div class="contact-card">
             <h3>💼 Business Inquiries</h3>
-            <p>Partnership & acquisition opportunities welcome</p>
+            <p>Business development, consulting & staffing opportunities</p>
           </div>
           <div class="contact-card">
             <h3>⚡ Quick Response</h3>
@@ -389,12 +390,42 @@
   
   <footer>
     <div class="container">
-      <p>&copy; 2025 LL Crew J LLC. All rights reserved.</p>
+      <p>&copy; 2025 LL Crew J. All rights reserved.</p>
     </div>
   </footer>
   
   <script>
     // Smooth scrolling for anchor links
-    doc
-
-Preview trimmed to first 10K characters
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Add animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
