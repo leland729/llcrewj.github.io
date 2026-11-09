@@ -3,429 +3,397 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LL Crew J LLC - Business Development & Operations</title>
+  <title>LL Crew J LLC · Technology, Development & Business Services</title>
+  <meta name="description" content="LL Crew J LLC builds web and mobile apps and provides executive technology consulting, business development, and recruiting services." />
+  <meta property="og:title" content="LL Crew J LLC" />
+  <meta property="og:description" content="Web & app development, technology consulting, business development, and recruiting." />
+  <meta property="og:url" content="https://llcrewj.com" />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1020'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='%237c9cff'%3ELLJ%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #111831;
+      --surface: #ffffff;
+      --surface-alt: #f5f7fb;
+      --text: #0f172a;
+      --muted: #5b6478;
+      --line: #e4e8f0;
+      --accent: #4f6bff;
+      --accent-2: #22c3a6;
+      --radius: 16px;
+      --max: 1140px;
     }
-    
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
-      color: #2c3e50;
-      line-height: 1.7;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: var(--surface);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
+    a { color: inherit; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11, 16, 32, 0.78);
+      backdrop-filter: saturate(160%) blur(14px);
+      -webkit-backdrop-filter: saturate(160%) blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      color: white;
-      padding: 2rem 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { display: flex; align-items: center; gap: .65rem; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: -0.01em; }
+    .brand-mark {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid; place-items: center; font-size: .78rem; font-weight: 800; color: #fff;
     }
-    
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.05);
-      transform: skewY(-3deg);
-      transform-origin: top left;
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: .94rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .btn { color: #fff; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .8rem 1.4rem; border-radius: 10px;
+      font-weight: 600; font-size: .95rem; text-decoration: none;
+      transition: transform .2s, box-shadow .2s, background .2s;
     }
-    
-    .header-content {
-      position: relative;
-      z-index: 2;
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 8px 24px rgba(79,107,255,0.35); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(79,107,255,0.45); }
+    .btn-ghost { color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+    .btn-sm { padding: .55rem 1rem; font-size: .88rem; }
+
+    /* Hero */
+    .hero {
+      position: relative; overflow: hidden;
+      background: var(--bg); color: #fff;
+      padding: 7rem 0 6.5rem;
     }
-    
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(600px 380px at 15% 10%, rgba(79,107,255,0.35), transparent 70%),
+        radial-gradient(520px 360px at 90% 80%, rgba(34,195,166,0.22), transparent 70%);
     }
-    
-    .tagline {
-      font-size: 1.3rem;
-      opacity: 0.95;
-      font-weight: 300;
-      margin-bottom: 2rem;
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
     }
-    
-    .cta-button {
-      display: inline-block;
-      background-color: #e74c3c;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    .hero .container { position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .35rem .85rem; border-radius: 999px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      font-size: .82rem; font-weight: 500; color: rgba(255,255,255,0.85);
+      margin-bottom: 1.6rem;
     }
-    
-    .cta-button:hover {
-      background-color: #c0392b;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2); }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.6vw, 4.2rem);
+      line-height: 1.08; letter-spacing: -0.035em; font-weight: 800;
+      max-width: 820px;
     }
-    
-    /* Main Content */
-    main {
-      padding: 4rem 0;
+    .gradient-text {
+      background: linear-gradient(90deg, #8ea2ff, #5ee0c6);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    
-    section {
-      margin-bottom: 4rem;
+    .hero p.lead {
+      margin-top: 1.4rem; max-width: 620px;
+      font-size: 1.15rem; color: rgba(255,255,255,0.72);
     }
-    
-    h2 {
-      color: #1e3c72;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      position: relative;
+    .hero-actions { margin-top: 2.2rem; display: flex; gap: .9rem; flex-wrap: wrap; }
+    .hero-tags { margin-top: 3.2rem; display: flex; flex-wrap: wrap; gap: .6rem; }
+    .hero-tags span { font-size: .85rem; color: rgba(255,255,255,0.65); padding: .35rem .85rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); }
+
+    /* Sections */
+    section { padding: 6rem 0; }
+    .section-head { max-width: 640px; margin-bottom: 3.2rem; }
+    .kicker { color: var(--accent); font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .8rem; }
+    h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); letter-spacing: -0.025em; line-height: 1.15; font-weight: 750; }
+    .section-head p { margin-top: 1rem; color: var(--muted); font-size: 1.08rem; }
+
+    /* Services */
+    .services { background: var(--surface-alt); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .card {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 2rem; transition: transform .25s, box-shadow .25s, border-color .25s;
     }
-    
-    h2::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(135deg, #e74c3c, #f39c12);
-      margin: 1rem auto;
-      border-radius: 2px;
+    .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(15,23,42,0.08); border-color: #cfd6ff; }
+    .card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 2.5rem; background: linear-gradient(135deg, #ffffff 0%, #f1f4ff 100%); }
+    .icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: grid; place-items: center; margin-bottom: 1.2rem;
+      background: rgba(79,107,255,0.1); color: var(--accent);
     }
-    
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      margin-top: 2rem;
+    .icon svg { width: 22px; height: 22px; }
+    .card h3 { font-size: 1.22rem; letter-spacing: -0.01em; margin-bottom: .55rem; }
+    .card p { color: var(--muted); font-size: .98rem; }
+    .badge { display: inline-block; font-size: .72rem; font-weight: 600; color: var(--accent); background: rgba(79,107,255,0.1); padding: .2rem .6rem; border-radius: 999px; margin-left: .5rem; vertical-align: middle; }
+    .checklist { list-style: none; display: grid; gap: .7rem; align-content: center; }
+    .checklist li { display: flex; gap: .7rem; align-items: flex-start; color: #334155; font-size: .96rem; }
+    .checklist li::before {
+      content: ''; flex: none; width: 18px; height: 18px; margin-top: .2rem; border-radius: 50%;
+      background: var(--accent-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat;
     }
-    
-    .about-text {
-      font-size: 1.1rem;
-      color: #34495e;
+
+    /* Work */
+    .work-card {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center;
+      background: var(--bg); color: #fff; border-radius: 24px; padding: 3.5rem;
+      position: relative; overflow: hidden;
     }
-    
-    .about-text p {
-      margin-bottom: 1.5rem;
+    .work-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(500px 300px at 100% 0%, rgba(34,195,166,0.25), transparent 70%);
     }
-    
-    .highlight-box {
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      padding: 2rem;
-      border-radius: 15px;
-      border-left: 5px solid #1e3c72;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    .work-card > * { position: relative; }
+    .work-card .kicker { color: #5ee0c6; }
+    .work-card h3 { font-size: 2rem; letter-spacing: -0.02em; margin-bottom: .8rem; }
+    .work-card p { color: rgba(255,255,255,0.72); }
+    .stack { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.5rem 0 2rem; }
+    .stack span { font-size: .8rem; padding: .3rem .75rem; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+    .work-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
+    .phone {
+      justify-self: center; width: 220px; aspect-ratio: 9 / 18.5; border-radius: 34px;
+      background: linear-gradient(160deg, #1b2445, #0e1430);
+      border: 8px solid #1f2747; box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+      padding: 1.4rem 1rem; display: flex; flex-direction: column; gap: .7rem;
     }
-    
-    .highlight-box h3 {
-      color: #1e3c72;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    .phone .bar { height: 10px; border-radius: 6px; background: rgba(255,255,255,0.12); }
+    .phone .bar.w60 { width: 60%; } .phone .bar.w40 { width: 40%; }
+    .phone .tile { border-radius: 12px; padding: .8rem; background: rgba(255,255,255,0.06); display: grid; gap: .45rem; }
+    .phone .tile.hl { background: linear-gradient(135deg, rgba(79,107,255,0.55), rgba(34,195,166,0.45)); }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+    .about-grid p { color: var(--muted); font-size: 1.06rem; margin-bottom: 1.2rem; }
+    .pillars { display: grid; gap: 1rem; }
+    .pillar { padding: 1.4rem 1.5rem; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface-alt); }
+    .pillar strong { display: block; margin-bottom: .25rem; }
+    .pillar span { color: var(--muted); font-size: .95rem; }
+
+    /* Contact */
+    .contact { background: var(--bg); color: #fff; text-align: center; position: relative; overflow: hidden; }
+    .contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(700px 360px at 50% 0%, rgba(79,107,255,0.3), transparent 70%); }
+    .contact .container { position: relative; }
+    .contact h2 { max-width: 700px; margin: 0 auto; }
+    .contact p { color: rgba(255,255,255,0.7); max-width: 580px; margin: 1.1rem auto 2.2rem; font-size: 1.08rem; }
+    .contact .meta { margin-top: 1.6rem; font-size: .9rem; color: rgba(255,255,255,0.5); }
+
+    footer { background: #070b17; color: rgba(255,255,255,0.5); font-size: .88rem; padding: 2rem 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
     }
-    
-    /* Services Section */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .card.featured { grid-template-columns: 1fr; gap: 1.2rem; padding: 2rem; }
+      .work-card { grid-template-columns: 1fr; padding: 2.4rem 1.8rem; }
+      .phone { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
-    
-    .service-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-top: 4px solid #1e3c72;
+    @media (max-width: 720px) {
+      .nav-links li:not(:last-child) { display: none; }
+      .hero { padding: 5rem 0 4.5rem; }
+      section { padding: 4.5rem 0; }
     }
-    
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-    
-    .service-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    
-    .service-card h3 {
-      color: #1e3c72;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-    }
-    
-    .service-card p {
-      color: #5a6c7d;
-      line-height: 1.6;
-    }
-    
-    /* Contact Section */
-    .contact-section {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-      color: white;
-      padding: 4rem 0;
-      margin: 4rem -2rem 0;
-      text-align: center;
-    }
-    
-    .contact-section h2 {
-      color: white;
-    }
-    
-    .contact-section h2::after {
-      background: linear-gradient(135deg, #e74c3c, #f39c12);
-    }
-    
-    .contact-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .contact-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2rem;
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .contact-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-    }
-    
-    .contact-card a {
-      color: #f8f9fa;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.1rem;
-    }
-    
-    .contact-card a:hover {
-      color: #e74c3c;
-      transition: color 0.3s ease;
-    }
-    
-    /* Footer */
-    footer {
-      background-color: #2c3e50;
-      color: #bdc3c7;
-      text-align: center;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1rem;
-      }
-      
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      .tagline {
-        font-size: 1.1rem;
-      }
-      
-      .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      h2 {
-        font-size: 2rem;
-      }
-      
-      .contact-section {
-        margin: 4rem -1rem 0;
-      }
-    }
-    
-    /* Smooth animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeIn 0.8s ease forwards;
-    }
-    
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .service-card:nth-child(1) { animation-delay: 0.1s; }
-    .service-card:nth-child(2) { animation-delay: 0.2s; }
-    .service-card:nth-child(3) { animation-delay: 0.3s; }
   </style>
 </head>
 <body>
-  <header>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand"><span class="brand-mark">LLJ</span> LL Crew J</a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="btn btn-primary btn-sm">Get in touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
     <div class="container">
-      <div class="header-content">
-        <h1>LL Crew J LLC</h1>
-        <p class="tagline">Business Development | Technology Consulting | Recruiting & Staffing</p>
-        <a href="#contact" class="cta-button">Let's Talk Business</a>
+      <div class="eyebrow"><span class="dot"></span> Now taking on new web &amp; app projects</div>
+      <h1>Technology and business expertise, <span class="gradient-text">built to ship.</span></h1>
+      <p class="lead">
+        LL Crew J LLC designs and builds web and mobile apps, and brings executive-level
+        technology leadership, business development, and recruiting to the teams we work with.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start a project
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost">Explore services</a>
+      </div>
+      <div class="hero-tags">
+        <span>Web &amp; App Development</span>
+        <span>CIO / CISO Consulting</span>
+        <span>Business Development</span>
+        <span>Recruiting &amp; Staffing</span>
       </div>
     </div>
   </header>
-  
+
   <main>
-    <div class="container">
-      <section id="about" class="fade-in">
-        <h2>About LL Crew J</h2>
-        <div class="about-content">
-          <div class="about-text">
-            <p>
-              LL Crew J is a multi-service business solutions firm specializing in three core areas: 
-              strategic business development through acquisition and growth of consumer goods companies, 
-              executive technology consulting for CIO/CISO roles, and comprehensive recruiting and staffing services.
-            </p>
-            <p>
-              Our integrated approach combines deep industry expertise with hands-on execution, 
-              whether we're scaling businesses, providing strategic technology leadership, 
-              or connecting organizations with top-tier talent.
-            </p>
-          </div>
-          <div class="highlight-box">
-            <h3>Our Mission</h3>
-            <p>
-              To deliver comprehensive business solutions that drive growth, enhance technology capabilities, 
-              and build exceptional teams through strategic partnerships and expert consulting services.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <section id="services" class="fade-in">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-          <div class="service-card fade-in">
-            <div class="service-icon">🚀</div>
-            <h3>Business Development</h3>
-            <p>
-              Strategic acquisition and scaling of consumer goods businesses with focus on 
-              online sales channels, operational excellence, and sustainable growth strategies.
-            </p>
-          </div>
-          <div class="service-card fade-in">
-            <div class="service-icon">🛡️</div>
-            <h3>Technology Consulting</h3>
-            <p>
-              Executive-level CIO and CISO consulting services providing strategic technology 
-              leadership, cybersecurity expertise, and digital transformation guidance.
-            </p>
-          </div>
-          <div class="service-card fade-in">
-            <div class="service-icon">👥</div>
-            <h3>Recruiting & Staffing</h3>
-            <p>
-              Comprehensive talent acquisition services connecting organizations with 
-              top-tier professionals across technology, operations, and leadership roles.
-            </p>
-          </div>
-        </div>
-      </section>
-    </div>
-    
-    <section id="contact" class="contact-section">
+    <section id="services" class="services">
       <div class="container">
-        <h2>Ready to Partner With Us?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
-          Whether you're exploring business acquisition opportunities, need strategic technology leadership, 
-          or require top-tier talent acquisition services, we'd love to discuss how LL Crew J can help.
-        </p>
-        <div class="contact-content">
-          <div class="contact-card">
-            <h3>📧 Email Us</h3>
-            <a href="mailto:contact@llcrewj.com">contact@llcrewj.com</a>
+        <div class="section-head reveal">
+          <div class="kicker">Services</div>
+          <h2>One partner from strategy to shipped product.</h2>
+          <p>We combine senior technology leadership with hands-on building, so plans turn into working software and growing businesses.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card featured reveal">
+            <div>
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </div>
+              <h3>Web &amp; App Development <span class="badge">New</span></h3>
+              <p>
+                Custom websites, web applications, and native-feeling iOS and Android apps, taken from
+                idea to App Store. We handle design, build, cloud hosting, and launch, then keep things
+                running after release.
+              </p>
+            </div>
+            <ul class="checklist">
+              <li>Responsive websites and full-stack web apps</li>
+              <li>iOS and Android apps, App Store &amp; Google Play publishing</li>
+              <li>APIs, integrations, sign-in, and push notifications</li>
+              <li>Cloud hosting, CI/CD, and ongoing maintenance</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Technology Consulting</h3>
+            <p>Executive-level CIO and CISO advisory: technology strategy, cybersecurity, cloud and infrastructure, and digital transformation guidance.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
+            </div>
+            <h3>Business Development</h3>
+            <p>Strategic acquisition and scaling of consumer goods businesses, with a focus on online sales channels, operational excellence, and sustainable growth.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Recruiting &amp; Staffing</h3>
+            <p>Talent acquisition that connects organizations with top professionals across technology, operations, and leadership roles.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="work-card reveal">
+          <div>
+            <div class="kicker">Featured work</div>
+            <h3>Tourbound</h3>
+            <p>
+              A live-music app for finding shows nearby, saving the ones you want to see, and planning
+              a tour with friends. Designed, built, and published by LL Crew J on the web and in the App Store.
+            </p>
+            <div class="stack">
+              <span>iOS</span><span>Web app</span><span>Push notifications</span><span>Cloud hosted</span>
+            </div>
+            <div class="work-actions">
+              <a href="https://tourbound.app" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Visit tourbound.app</a>
+              <a href="https://tourbound.app/go/app" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">View on the App Store</a>
+            </div>
           </div>
-          <div class="contact-card">
-            <h3>💼 Business Inquiries</h3>
-            <p>Business development, consulting & staffing opportunities</p>
-          </div>
-          <div class="contact-card">
-            <h3>⚡ Quick Response</h3>
-            <p>We typically respond within 24 hours</p>
+          <div class="phone" aria-hidden="true">
+            <div class="bar w40"></div>
+            <div class="tile hl"><div class="bar w60"></div><div class="bar w40"></div></div>
+            <div class="tile"><div class="bar"></div><div class="bar w60"></div></div>
+            <div class="tile"><div class="bar w60"></div><div class="bar w40"></div></div>
+            <div class="tile"><div class="bar"></div><div class="bar w40"></div></div>
           </div>
         </div>
       </div>
     </section>
+
+    <section id="about" class="services">
+      <div class="container about-grid">
+        <div class="reveal">
+          <div class="kicker">About</div>
+          <h2>Senior expertise, hands-on execution.</h2>
+          <p style="margin-top:1.2rem">
+            LL Crew J is a multi-service firm built on deep, hands-on technology leadership. We advise at the
+            executive level and we build. That means the people setting your technology direction can
+            also write the code, publish the app, and stand up the infrastructure behind it.
+          </p>
+          <p>
+            Whether we're scaling a business, providing strategic technology leadership, building
+            your next product, or finding the right people for your team, we bring the same focus on
+            practical results.
+          </p>
+        </div>
+        <div class="pillars reveal">
+          <div class="pillar"><strong>Our mission</strong><span>Deliver business and technology solutions that drive growth, strengthen capabilities, and build exceptional teams.</span></div>
+          <div class="pillar"><strong>Strategy plus delivery</strong><span>No hand-off gap between the people who plan the work and the people who build it.</span></div>
+          <div class="pillar"><strong>Built to last</strong><span>Secure, maintainable systems on modern cloud platforms, supported well after launch.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container reveal">
+        <div class="kicker" style="color:#8ea2ff">Contact</div>
+        <h2>Have a project or a challenge in mind?</h2>
+        <p>Whether it's a new app, technology leadership, a business opportunity, or a hiring need, we'd love to hear about it.</p>
+        <a href="mailto:contact@llcrewj.com" class="btn btn-primary">contact@llcrewj.com</a>
+        <div class="meta">We typically respond within one business day.</div>
+      </div>
+    </section>
   </main>
-  
+
   <footer>
-    <div class="container">
-      <p>&copy; 2025 LL Crew J. All rights reserved.</p>
+    <div class="container footer-inner">
+      <span>&copy; <span id="year">2026</span> LL Crew J LLC. All rights reserved.</span>
+      <a href="mailto:contact@llcrewj.com">contact@llcrewj.com</a>
     </div>
   </footer>
-  
+
   <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
       });
-    });
-    
-    // Add animation on scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
-        }
-      });
-    }, observerOptions);
-    
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
-    });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
   </script>
 </body>
 </html>
